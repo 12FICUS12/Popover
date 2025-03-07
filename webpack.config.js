@@ -1,8 +1,6 @@
 const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const mode = process.env.NODE_ENV || 'development';
-
 module.exports = {
   entry: './src/index.js',
   devServer: {
@@ -14,7 +12,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     clean: true,
   },
-  mode,
+  mode: "development",
   module: {
     rules: [
       {

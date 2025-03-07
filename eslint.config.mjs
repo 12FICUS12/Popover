@@ -1,12 +1,11 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
-import Cursor from "./src/Cursor";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   { files: ["**/*.{js,mjs,cjs,jsx}"] },
-  { ignores: ["dist/**"]},
+  { ignores: ["dist/**"] },
   {
     languageOptions: {
       globals: {
@@ -18,8 +17,13 @@ export default [
         module: "readonly",
         __dirname: "readonly",
         exports: "readonly",
-        
-        
+        // Добавьте глобальные переменные для Node.js
+        process: "readonly", 
+        __filename: "readonly", 
+        jest: "readonly",
+        describe: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly",
       },
     },
   },
@@ -29,7 +33,7 @@ export default [
     },
     settings: {
       react: {
-        version: "detect", 
+        version: "detect",
       },
     },
   },

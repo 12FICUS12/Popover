@@ -83,7 +83,7 @@ describe('Popover Component', () => {
     test('should reposition the popover on window resize', async () => {
         // Открываем поповер
         await page.click('#popover-btn');
-        await page.waitForTimeout(100); // Ждем, чтобы поповер успел отобразиться
+        await new Promise(resolve => setTimeout(resolve, 100)); // Ждем, чтобы поповер успел отобразиться
 
         const initialPosition = await page.evaluate(() => {
             const popover = document.getElementById('popover');
@@ -92,8 +92,8 @@ describe('Popover Component', () => {
 
         // Меняем размер окна
         await page.setViewport({ width: 500, height: 700 });
-        await page.waitForTimeout(100); // Ждем, чтобы позиционирование обновилось
-        JavaScript
+        await new Promise(resolve => setTimeout(resolve, 100)); // Ждем, чтобы позиционирование обновилось
+
 
         const newPosition = await page.evaluate(() => {
             const popover = document.getElementById('popover');

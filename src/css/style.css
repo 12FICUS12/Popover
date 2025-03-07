@@ -37,7 +37,7 @@ body {
   }
   
   .popover.visible {
-    display: block; 
+    display: block!important; 
     opacity: 1; 
   }
   
